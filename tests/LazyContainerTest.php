@@ -70,4 +70,19 @@ class LazyContainerTest extends TestCase
         $this->assertInstanceOf(DecoratorInterface::class, $result);
         $this->assertEquals('12345', $result->talk());
     }
+
+    public function test it can build commands that receive non di arguments(): void
+    {
+        $command = $this->lazyContainer->command(function ($args, SomeConcrete $dependency) {
+            return [
+                $args[0],
+                $dependency
+            ];
+        });
+
+        $result = $command('1234');
+
+        $this->assertEquals('1234', $result[0]);
+        $this->assertInstanceOf(SomeConcrete::class, $result[1]);
+    }
 }

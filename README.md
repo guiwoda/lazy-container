@@ -44,6 +44,20 @@ $this->app->bind(MyPretty::class, function () use ($fun) {
 
 Any callable (even Laravel's callable strings) will be resolved through the `Container` when called on.
 
+### Commands
+
+Zero-param closures are a great way of decoupling messaging, but sometimes we need more power.
+Adding parameters to messages will couple ourselves a bit, but in turn we gain more flexibility in
+our designs.
+
+```php
+$doEeet = $lazy->closure(function ($args, Depend $on, Whatever $youNeed) {
+	return $on->some($args[0]) + $youNeed($args[1]); 
+});
+
+$doEeet('1st param', new SecondParam);
+```
+
 ### Decorator chains
 
 Decorators are a complicated beast for dependency injection containers:
