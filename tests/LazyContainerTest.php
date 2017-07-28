@@ -27,16 +27,16 @@ class LazyContainerTest extends TestCase
     }
 
     public function test it can build a lazy closure with di(): void
-	{
-		$result = $this->lazyContainer->closure(function (SomeConcrete $foo) {
-		    return $foo;
+    {
+        $result = $this->lazyContainer->closure(function (SomeConcrete $foo) {
+            return $foo;
         });
 
-		$this->assertInstanceOf(Closure::class, $result);
-		$this->assertInstanceOf(SomeConcrete::class, $result());
-	}
+        $this->assertInstanceOf(Closure::class, $result);
+        $this->assertInstanceOf(SomeConcrete::class, $result());
+    }
 
-	public function test it can build a lazy static method call with di(): void
+    public function test it can build a lazy static method call with di(): void
     {
         $fn = $this->lazyContainer->closure([SomeConcrete::class, 'bar']);
 
@@ -45,7 +45,7 @@ class LazyContainerTest extends TestCase
         $this->assertInstanceOf(SomeConcrete::class, $result[1]);
     }
 
-	public function test it can build a lazy method call with di(): void
+    public function test it can build a lazy method call with di(): void
     {
         $fn = $this->lazyContainer->closure(SomeConcrete::class.'@baz');
 
