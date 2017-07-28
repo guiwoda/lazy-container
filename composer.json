@@ -1,0 +1,29 @@
+{
+    "name": "guiwoda/lazy-container",
+    "description": "A lazy (or lazier) version of Laravel's Container.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guido Contreras Woda",
+            "email": "guiwoda@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/contracts": "^5.2",
+        "illuminate/support": "^5.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2",
+        "illuminate/container": "^5.2",
+        "mockery/mockery": "^0.9.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Woda\\Container\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": ["tests/"]
+    }
+}
