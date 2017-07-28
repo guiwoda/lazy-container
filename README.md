@@ -29,7 +29,7 @@ Following examples will assume an instance of the `LazyContainer` on the `$lazy`
 A good way to decouple objects is to replace a concrete method call with a higher order function.
 Laravel's `Collection` object is a good example of this.
 
-`LazyCollection` allows you to delegate all dependency resolution of a message call to the container,
+`LazyContainer` allows you to delegate all dependency resolution of a message call to the container,
 and build a zero-parameter `Closure` that can be injected on your objects, thus making them unaware of
 those dependencies.
 
